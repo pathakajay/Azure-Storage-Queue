@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Threading.Tasks;
 using AzureStorageQueue.Common;
+using Microsoft.Azure.Storage;
 using Microsoft.Azure.Storage.Queue;
 
 namespace AzureStorageQueue.Operations
@@ -16,6 +17,7 @@ namespace AzureStorageQueue.Operations
             await AddMessage();
             await UpdateQueueMessage();
             await CreateQueue();
+            await DequeueQueue();
 
             Console.WriteLine("Press a key to exit.");
             Console.ReadLine();
@@ -85,6 +87,35 @@ namespace AzureStorageQueue.Operations
                     MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 
 
+            }
+        }
+
+        public static async Task DequeueQueue()
+        {
+
+            CloudQueue queue = await QueueHelper.GetCloudQueue();
+
+            Console.WriteLine("Get the queue length");
+
+            await queue.FetchAttributesAsync();
+            int? cachedMessageCount = queue.ApproximateMessageCount;
+            Console.WriteLine("Number of messages in queue: {0}", cachedMessageCount);
+            QueueRequestOptions options = new QueueRequestOptions();
+            OperationContext operationContext = new OperationContext();
+
+            if (cachedMessageCount == null)
+            {
+                Console.WriteLine("No Message Present in Queue");
+                return;
+            }
+
+            foreach (CloudQueueMessage message in await queue.GetMessagesAsync(cachedMessageCount.Value,
+                new TimeSpan(0, 0, 5, 0), options, operationContext))
+            {
+                // Process all messages in less than 5 minutes, deleting each message after processing.
+
+                Console.WriteLine("Processing {0} Message", message.AsString);
+                await queue.DeleteMessageAsync(message);
             }
         }
     }
