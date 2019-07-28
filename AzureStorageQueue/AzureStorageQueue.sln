@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureStorageQueue", "AzureStorageQueue\AzureStorageQueue.csproj", "{C51AA257-47A6-48D3-9155-B8651E0C0EB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureStorageQueue.Common", "AzureStorageQueue.Common\AzureStorageQueue.Common.csproj", "{EEAC9AE7-A907-4B6C-9F48-7A4CA1F7507B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureStorageQueue.Operations", "AzureStorageQueue.Operations\AzureStorageQueue.Operations.csproj", "{ECE41683-7702-42D0-BB24-7A1404A47DFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C51AA257-47A6-48D3-9155-B8651E0C0EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C51AA257-47A6-48D3-9155-B8651E0C0EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C51AA257-47A6-48D3-9155-B8651E0C0EB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEAC9AE7-A907-4B6C-9F48-7A4CA1F7507B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEAC9AE7-A907-4B6C-9F48-7A4CA1F7507B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEAC9AE7-A907-4B6C-9F48-7A4CA1F7507B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEAC9AE7-A907-4B6C-9F48-7A4CA1F7507B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECE41683-7702-42D0-BB24-7A1404A47DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECE41683-7702-42D0-BB24-7A1404A47DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECE41683-7702-42D0-BB24-7A1404A47DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECE41683-7702-42D0-BB24-7A1404A47DFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
